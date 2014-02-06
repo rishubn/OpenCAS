@@ -1,4 +1,3 @@
-
 /*
  * This class converts the infix input string into a postfix string which is then used as the output
  *
@@ -93,7 +92,9 @@ public class Postfixer {
         }
         else
         {
-
+	    while(((!tok.isEmpty()) && tok.peek().getType() == 2)){
+        		postfix += " " + tok.pop();
+	    }	
             while((!tok.isEmpty()  && (tok.peek().getAssoc() == 1 && (tok.peek().getPrecedence() <= o.getPrecedence())) && !(tok.peek() instanceof Paran))){
 
                 postfix += " " + tok.pop();
