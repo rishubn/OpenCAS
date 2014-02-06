@@ -17,7 +17,7 @@
 
 package org.mathlib.process;
 import java.util.Stack;
-
+import org.mathlib.core.Functions.Function;
 import org.mathlib.core.*;
 
 public class Interpreter 
@@ -53,6 +53,11 @@ public class Interpreter
 			{
 				stack.push(Double.parseDouble(arr[i]));
 			}
+            else if(o instanceof Function)
+            {
+                stack.push(o.operation(stack.pop()));
+            }
+
 			else
 			{
 				if(stack.size() <= 1)
@@ -81,6 +86,6 @@ public class Interpreter
 	public static void main(String args[]){
 		PopulateMaps.Populate();
 		Interpreter i = new Interpreter();
-		System.out.println(i.interpret(new Postfixer("(sin(abs(cos(6 ^ 2)))) + 3")));
+		System.out.println(i.interpret(new Postfixer("cos((1/6) * sqrt(9))")));
 	}
 }

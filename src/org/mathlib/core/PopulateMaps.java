@@ -22,5 +22,6 @@ public class PopulateMaps {
         TokenMap.addTok(new AbsoluteValue());
         TokenMap.addTok(new Log());
         TokenMap.addTok(new Ln());
+        TokenMap.addTok(new SqRoot());
 	}
 }

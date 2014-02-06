@@ -93,7 +93,9 @@ public class Postfixer {
         }
         else
         {
-
+            while(((!tok.isEmpty()) && tok.peek().getType() == 2)){
+                postfix += " " + tok.pop();
+            }
             while((!tok.isEmpty()  && (tok.peek().getAssoc() == 1 && (tok.peek().getPrecedence() <= o.getPrecedence())) && !(tok.peek() instanceof Paran))){
 
                 postfix += " " + tok.pop();
@@ -125,7 +127,7 @@ public class Postfixer {
 	}
 public static void main(String[] args){
 	PopulateMaps.Populate();
-	System.out.println((new Postfixer("(sin(abs(cos(6 ^ 2))) + 3")));
+	System.out.println((new Postfixer("cos((1/6) * sqrt(9))")));
     //System.out.println((new Postfixer("(8 + 4) * sin(7)")));
 }
 
