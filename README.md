@@ -17,7 +17,7 @@ My library, MathLib, is in a primitive state at the moment. It supports the foll
 
 It supports the Functions
 
-sin cos tan csc sec cot ln log and abs
+sin cos tan csc sec cot asin acos atan ln log and abs
 
 
 
