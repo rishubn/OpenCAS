@@ -86,6 +86,6 @@ public class Interpreter
 	public static void main(String args[]){
 		PopulateMaps.Populate();
 		Interpreter i = new Interpreter();
-		System.out.println(i.interpret(new Postfixer("cos((1/6) * sqrt(9))")));
+		System.out.println(i.interpret(new Postfixer("8/2 + 4/5")));
 	}
 }
