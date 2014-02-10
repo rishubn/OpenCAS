@@ -1,3 +1,4 @@
+
 /*
  * This class converts the infix input string into a postfix string which is then used as the output
  *
@@ -46,7 +47,7 @@ public class Postfixer {
     for(int i = 0; i < arr.length; i++)
     {
 
-    
+
         if(arr[i].equals(" "))
         {
             continue;
@@ -92,10 +93,10 @@ public class Postfixer {
         }
         else
         {
-	    while(((!tok.isEmpty()) && tok.peek().getType() == 2)){
-        		postfix += " " + tok.pop();
-	    }	
-            while((!tok.isEmpty()  && (tok.peek().getAssoc() == 1 && (tok.peek().getPrecedence() <= o.getPrecedence())) && !(tok.peek() instanceof Paran))){
+            while(((!tok.isEmpty()) && tok.peek().getType() == 2)){
+                postfix += " " + tok.pop();
+            }
+            while((!tok.isEmpty()  && (tok.peek().getAssoc() == 0 && (tok.peek().getPrecedence() <= o.getPrecedence())) && !(tok.peek() instanceof Paran))){
 
                 postfix += " " + tok.pop();
             }
@@ -121,12 +122,14 @@ public class Postfixer {
     return postfix;
 
 }
-	public String toString(){
+	public String toString()
+    {
 		return postfix;
 	}
-public static void main(String[] args){
+public static void main(String[] args)
+{
 	PopulateMaps.Populate();
-	System.out.println((new Postfixer("(sin(abs(cos(6 ^ 2))) + 3")));
+	System.out.println((new Postfixer("8/2 + 4/5")));
     //System.out.println((new Postfixer("(8 + 4) * sin(7)")));
 }
 
