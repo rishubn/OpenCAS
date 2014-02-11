@@ -30,3 +30,22 @@ RPN format makes the process simpler.
 
 My ultimate goal is to create an app that does differential and integral calculus, perhaps even something on par with Wolfram Alpha's engine. 
 Right now, my Engine can parse complex expressions, solve them or convert them into RPN format. 
+
+Examples:
+
+src.org.mathlib.core.process
+
+Create a new Postfixer object with the parameters being your expression. See the Postfixer class for examples.
+To solve, create an Interpreter object with the parameters being a postfixer object. 
+
+To add functions
+
+src.org.mathlib.core.functions
+
+Create a new class and extend the function class. 
+Then go to the PopulateMaps class and add 
+
+TokenMap.addTok(new yourclassname());
+
+For Operators, do the same except extend the operator class
+
