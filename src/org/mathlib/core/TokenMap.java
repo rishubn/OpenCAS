@@ -9,7 +9,10 @@ public class TokenMap {
 	public static void addTok(Token o){
 		tMap.put(o.toString(), o);
 	}
-	
+	public static boolean isToken(String t)
+    {
+        if(tMap.containsKey(t.trim())){ return true; }else{ return false; }
+    }
 	public static Map<String, Token> getMap(){
 		return tMap;
 	}

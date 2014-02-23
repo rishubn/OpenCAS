@@ -27,6 +27,7 @@ public class Postfixer {
 	private Stack<Token> tok;
 
 	public Postfixer(String exp){
+        PopulateMaps.Populate();
 		expression = exp;
 		tok = new Stack<Token>();
 		
@@ -106,7 +107,7 @@ public class Postfixer {
         }
 
     }
-    System.out.println(tok);
+
 
     while(!tok.isEmpty())
     {
@@ -128,8 +129,8 @@ public class Postfixer {
 	}
 public static void main(String[] args)
 {
-	PopulateMaps.Populate();
-	System.out.println((new Postfixer("8/2 + 4/5")));
+
+	System.out.println((new Postfixer("((2+8)             /(8+2))*7")));
     //System.out.println((new Postfixer("(8 + 4) * sin(7)")));
 }
 
