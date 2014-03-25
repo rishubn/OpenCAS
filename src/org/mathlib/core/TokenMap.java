@@ -16,4 +16,18 @@ public class TokenMap {
 	public static Map<String, Token> getMap(){
 		return tMap;
 	}
+
+    public static Token getTok(String s)
+    {
+
+        if(isToken(s))
+        {
+            return tMap.get(s);
+        }
+        return null;
+
+
+
+    }
+
 }

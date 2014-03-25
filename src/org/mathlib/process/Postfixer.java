@@ -11,6 +11,7 @@
 
 package org.mathlib.process;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -44,6 +45,72 @@ public class Postfixer {
 {
     String regex = "(?<=op)|(?=op)".replace("op", "[-^+*%/()]");
     String[] arr = e.split(regex);
+
+    ArrayList<String> a  = new ArrayList<String>(Arrays.asList(arr));
+
+    for(int i = 0; i < a.size(); i++)
+    {
+        a.set(i, a.get(i).trim());
+    }
+    if(Character.isLetter(a.get(0).charAt(0)))
+    {
+        a.add(0,"(");
+    }
+ /*   for(int i = 0; i < a.size(); i++)
+    {
+        String s = a.get(i);
+
+        if(Character.isLetter(s.charAt(0)) && i == a.size() - 1)
+        {
+            if(a.size() == 1)
+            {
+                a.add(0,"(");
+                a.add(")");
+                continue;
+            }
+            if(a.get(i-1).equals("*"))
+            {
+                a.add(i-2,"(");
+            }
+            else
+            {
+                a.add(i-1,"(");
+            }
+            a.add(")");
+            continue;
+        }
+        if(&& a.get(i+1).equals("^"))
+        {
+            a.add(i-1,)
+            a.add(i+2,")");
+        }
+        else if(Character.isLetter(s.charAt(0)) && i != 0 && a.get(i-1).equals("*"))
+        {
+
+            a.add(i-2,"(");
+            i++;
+
+            if(i == a.size() - 1)
+            {
+
+                a.add(")");
+            }
+            else if(a.get(i+1).equals("^"))
+            {
+
+                a.add(i + 3, ")");
+            }
+            else
+            {
+
+                a.add(i+1,")");
+            }
+
+        }
+
+   //System.out.println(a.get(i));
+    }*/
+    arr = a.toArray(new String[a.size()]);
     System.out.println(Arrays.toString(arr));
     for(int i = 0; i < arr.length; i++)
     {
@@ -130,7 +197,7 @@ public class Postfixer {
 public static void main(String[] args)
 {
 
-	System.out.println((new Postfixer("((2+8)             /(8+2))*7")));
+	System.out.println((new Postfixer("x+1")));
     //System.out.println((new Postfixer("(8 + 4) * sin(7)")));
 }
 

@@ -9,7 +9,8 @@ public class ExpressionTree {
     private String post;
     private Node root;
     Stack<Node> stack;
-    private String tree;
+
+
 
     public ExpressionTree(Postfixer p)
     {
@@ -19,7 +20,19 @@ public class ExpressionTree {
 
         makeTree(post);
     }
+    public ExpressionTree(String exp)
+    {
+        post = new Postfixer(exp).toString();
+        stack = new Stack<Node>();
+        makeTree(post);
 
+
+    }
+    public ExpressionTree(Node n)
+    {
+        stack = new Stack<Node>();
+        root = n;
+    }
     public Node getRoot()
     {
         return root;
@@ -46,44 +59,41 @@ public class ExpressionTree {
             }else{
 
                 Node n = new Node(arr[i].trim());
-                n.right = stack.pop();
-                n.left = stack.pop();
+                n.setRight(stack.pop());
+                if(stack.isEmpty())
+                {
+                    root = n;
+                    return;
+                }
+                n.setLeft(stack.pop());
+                n.getRight().setParent(n);
+                n.getLeft().setParent(n);
                 stack.push(n);
 
             }
 
         }
+        root = stack.pop();
 
 
     }
+    public void traverse(Node node){
 
+        if(node != null){
 
-    public String toString()
-    {
+        traverse (node.getLeft());
+            System.out.print(node);
+        traverse(node.getRight());
 
-       root = stack.pop();
-       root.print("",true);
-
-        return tree;
     }
-
-    private void traverse(Node node){
-        Node n = node;
-
-        while(n.left != null)
-        {
-            n = n.left;
-
-        }
-        tree += " " +  n.toString();
     }
 
 
 
     public static void main(String[] args)
     {
-        ExpressionTree e = new ExpressionTree(new Postfixer("(5 - x) * 7 ^ 6"));
-        System.out.println(e);
+        ExpressionTree e = new ExpressionTree(new Postfixer("3*x^2+4*x^2"));
+        e.traverse(e.getRoot());
     }
 
 
@@ -96,33 +106,6 @@ public class ExpressionTree {
 
 
 
-    class Node {
-
-        Node left;
-        Node right;
-
-        String tok;
-
-        Node(String s)
-        {
-            tok = s;
-
-        }
-        public String toString()
-        {
-            return tok;
-        }
-        public void print(String prefix, boolean isTail) {
-            System.out.println(prefix + (isTail ? "└── " : "├── ") + tok);
-                if(right != null){
-                right.print(prefix + (isTail ? "    " : "│   "), false);
-                }
-            if (left != null) {
-                left.print(prefix + (isTail ? "    " : "│   "), true);
-            }
-        }
-
-    }
 
 
 

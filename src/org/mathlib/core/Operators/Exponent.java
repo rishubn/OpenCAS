@@ -6,7 +6,7 @@ public class Exponent extends Operator {
 
 	public Exponent() {
 		super("^", 2);
-		setAssoc(1);
+		setAssoc(0);
 		
 	}
 
