@@ -1,4 +1,3 @@
-
 /*
  * This class converts the infix input string into a postfix string which is then used as the output
  *
@@ -52,11 +51,11 @@ public class Postfixer {
     {
         a.set(i, a.get(i).trim());
     }
-    if(Character.isLetter(a.get(0).charAt(0)))
+ /*   if(Character.isLetter(a.get(0).charAt(0)))
     {
         a.add(0,"(");
     }
- /*   for(int i = 0; i < a.size(); i++)
+   for(int i = 0; i < a.size(); i++)
     {
         String s = a.get(i);
 
