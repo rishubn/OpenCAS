@@ -6,11 +6,11 @@ package org.mathlib.core.Expressions;
 public class Variable {
 
     private char name;
-    private Double coefficient;
-    private Object exponent;
-    private Double value;
+    private double coefficient;
+    private double exponent;
+    private double value;
 
-    public Variable(char n,Double c, Object e)
+    public Variable(char n,double c, double e)
     {
         name = n;
         coefficient = c;
@@ -26,15 +26,15 @@ public class Variable {
     }
 
 
-    public Double getCoefficient() {
+    public double getCoefficient() {
         return coefficient;
     }
     public void setValue(double d) { value = d; }
-    public Object getExponent() {
+    public double getExponent() {
         return exponent;
     }
 
-    public Double getValue() {
+    public double getValue() {
         return value;
     }
 
@@ -45,7 +45,7 @@ public class Variable {
 
     public String toString()
     {
-        return coefficient + " * " + name + "^" + exponent;
+        return coefficient + "*" + name + "^" + exponent;
     }
 
 }

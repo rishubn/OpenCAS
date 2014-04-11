@@ -218,3 +218,4 @@ pip-log.txt
 .mr.developer.cfg
 .idea/.name
 MathLib.iml
+*.iml

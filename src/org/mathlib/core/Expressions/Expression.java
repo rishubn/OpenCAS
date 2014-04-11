@@ -33,7 +33,7 @@ public class Expression {
 
         Node n = e.getRoot();
         double coeff = 1;
-        Object expon = new Double(1.0);
+        double expon = 1;
         if(n != null){
         parseVar(new ExpressionTree(n.getLeft()));
             if(Character.isLetter(n.toString().charAt(0)))
@@ -70,6 +70,14 @@ public class Expression {
                         {
                             coeff = Double.parseDouble(par.getParent().getLeft().toString());
                         }
+                    }
+                }
+                else if(o instanceof Multiply)
+                {
+                    Node par = n.getParent();
+                    if(Character.isDigit(par.getLeft().toString().charAt(0)))
+                    {
+                        coeff = Double.parseDouble(par.getLeft().toString());
                     }
                 }
                 Variable v = new Variable(n.toString().charAt(0),coeff,expon);
@@ -118,7 +126,7 @@ public class Expression {
 
 public static void main(String[] args)
 {
-    Expression e = new Expression("1 / 5*x^3");
+    Expression e = new Expression("x^3");
 }
 
 
