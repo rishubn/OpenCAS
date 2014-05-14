@@ -1,3 +1,26 @@
+*****************************************
+
+This project is under a temporary hiatus due to exams and final projects.
+Work will be resumed after school is out
+
+*****************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 MathLib
 =======
 
